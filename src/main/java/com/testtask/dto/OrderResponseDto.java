@@ -1,9 +1,11 @@
 package com.testtask.dto;
 
-public record OrderResponseDto(
-        Long id,
-        String userSurname,
-        String name,
-        int quantity
-) {
+import lombok.Data;
+
+@Data
+public class OrderResponseDto {
+    private Long id;
+    private String lastname;
+    private String product;
+    private Integer quantity;
 }

@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -23,12 +24,13 @@ public class OrderController {
     }
 
     @GetMapping("/order-create")
-    public String createOrderForm(OrderRequestDto requestDto) {
+    public String createOrderForm(Model model) {
+        model.addAttribute("requestDto", new OrderRequestDto());
         return "add-order";
     }
 
     @PostMapping("/order-create")
-    public String createOrder(OrderRequestDto requestDto) {
+    public String createOrder(@ModelAttribute("requestDto") OrderRequestDto requestDto) {
         orderService.create(requestDto);
         return "redirect:/orders";
     }

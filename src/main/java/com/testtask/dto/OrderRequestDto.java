@@ -1,8 +1,10 @@
 package com.testtask.dto;
 
-public record OrderRequestDto(
-        String userSurname,
-        String name,
-        int quantity
-) {
+import lombok.Data;
+
+@Data
+public class OrderRequestDto {
+    private String lastname;
+    private String product;
+    private Integer quantity;
 }

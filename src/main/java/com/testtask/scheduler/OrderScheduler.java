@@ -15,7 +15,7 @@ public class OrderScheduler {
     private static final Logger logger = LoggerFactory.getLogger(OrderScheduler.class);
     private final OrderRepository orderRepository;
 
-    @Scheduled(cron = "0 0/2 * * * *")
+    @Scheduled(cron = "0 0/5 * * * *")
     public void processNewOrders() {
         List<Order> orders = orderRepository.findAll().stream()
                 .filter(order -> order.getStatus().equals(Order.Status.NEW))

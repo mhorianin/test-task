@@ -18,7 +18,7 @@ public class Order {
     private Long id;
     private String lastname;
     private String product;
-    private int quantity;
+    private Integer quantity;
     private Status status;
 
     public enum Status {
